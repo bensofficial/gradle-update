@@ -18,14 +18,14 @@
 
 {% for type in types %}
 
-git clone https://TUM-ID:TOKEN@artemis.tum.de/git/ITP2425{{ exercise | upper }}/itp2425{{ exercise }}-tests.git /tmp/{{ exercise }}-tests
-cd /tmp/{{ exercise }}-tests
+git clone https://TUM-ID:TOKEN@artemis.tum.de/git/ITP2425{{ exercise | upper }}/itp2425{{ exercise }}-{{ type }}.git /tmp/{{ exercise }}-{{ type }}
+cd /tmp/{{ exercise }}-{{ type }}
 ./gradlew wrapper --gradle-version 8.12
 ./gradlew wrapper --gradle-version 8.12
 git commit -a -m "Update Gradle Version"
 git push origin main
 cd ..
-rm -rf /tmp/{{ exercise }}-tests
+rm -rf /tmp/{{ exercise }}-{{ type }}
 
 {% endfor %}
 
